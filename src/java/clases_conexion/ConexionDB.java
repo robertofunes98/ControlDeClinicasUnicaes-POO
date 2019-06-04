@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clases_conexion;
 
 import java.sql.*;
@@ -45,4 +40,31 @@ public class ConexionDB{
     {
         return conexion.getMetaData();
     }
+    
+    public ResultSet ejecutar(String consulta) throws SQLException
+    {
+        //Objeto tipo statement que maneja la consulta.
+        Statement cons = this.conexion.createStatement();
+        //Ejecutando la consulta.
+        return cons.executeQuery(consulta);
+    }
+    
+    public void ejecutarComando(String comando) throws SQLException {
+        //Objeto tipo Statement que maneja el comando.
+        Statement com = this.conexion.createStatement();
+        //Ejecuta el comando.
+        try {
+            com.executeUpdate(comando);
+            System.out.println("Comando ejecutado.");
+        }
+        catch(SQLException e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void cerrarConexion() throws SQLException {
+        this.conexion.close();
+    }
+    
+    
 }

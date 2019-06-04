@@ -20,7 +20,7 @@
             
             ConexionDB conexion = new ConexionDB("jdbc:mysql://localhost:3306/sistema_clinica", "root", "");
             
-            out.print(conexion.conectar());
+            out.print("INdex de prueba!");
             
             //DatabaseMetaData dbmd = conexion.getMetaData();
             
