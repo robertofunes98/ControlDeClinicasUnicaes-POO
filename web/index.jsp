@@ -16,7 +16,8 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <%
+        <% 
+            
             ConexionDB conexion = new ConexionDB("jdbc:mysql://localhost:3306/sistema_clinica", "root", "");
             
             out.print(conexion.conectar());
