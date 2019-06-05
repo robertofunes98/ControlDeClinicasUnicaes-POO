@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+}
+
+p{
+	text-align: center;
+	border-style: double;
+	border-radius: 15px;
+	width: 50%;
+	margin: auto;
+	margin-top: 20px;
+}
+
+form {
+  padding: 1em;
+  background: #f9f9f9;
+  border: 1px solid #c1c1c1;
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+form input,textarea {
+  margin-bottom: 1rem;
+  background: #fff;
+  border: 1px solid #9c9c9c;
+}
+
+
+.checkbox{
+	width: 100%;
+}
+
+.inputTabla{
+	margin-bottom: 1rem;
+  background: #fff;
+  border: 1px solid #9c9c9c;
+  width: 100%;
+}
+
+.texto{
+	vertical-align: center;
+}
+
+form button {
+  background: lightgrey;
+  padding: 0.7em;
+  border: 0;
+}
+form button:hover {
+  background: gold;
+}
+
+label {
+  text-align: right;
+  display: block;
+  padding: 0.5em 1.5em 0.5em 0;
+}
+
+input,textarea, select {
+  width: 100%;
+  padding: 0.7em;
+  margin-bottom: 0.5rem;
+}
+input:focus, select:focus, textarea:focus {
+  outline: 3px solid gold;
+}
+
+select{
+  font-family: verdana;
+}
+
+@media (min-width: 400px) {
+  form {
+    overflow: hidden;
+  }
+
+  label {
+    float: left;
+    width: 200px;
+  }
+
+  input,textarea, select {
+    float: left;
+    width: calc(100% - 200px);
+  }
+
+  button {
+    float: right;
+    width: calc(100% - 200px);
+  }
+  h1{
+  	text-align: center;
+  }
+}
+
+.enlaceBoton{
+  text-decoration: none;
+  color: #000;
+  background-color: lightgrey;
+}
+
+.enlaceBoton:hover{
+  background-color: blue;
+}
+
+
+/*Tablas*/
+
+table {
+  background: white;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 2%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th {
+  /*background-color: rgba(5, 5, 100, 95);*/
+  background-color: rgba(20, 20, 20, 90);
+  height: 35px;
+  border-bottom: 1px solid rgb(210, 220, 250);
+  color: #fff;
+  padding: 13px;
+}
+
+td {
+  color: #000;
+  height: 30px;
+  border: 0.5px solid rgba(240, 240, 240, 10);
+  padding: 13px;
+}
+
+tfoot {
+  font-weight: bold;
+}
+
+/*Pseudo-clases*/
+th:hover {
+  /*background-color: rgba(20, 20, 20, 90);*/
+  background-color: rgba(100, 10, 10, 1);
+}
+
+tr:hover {
+  /*background-color: #090909;*/
+  background-color: rgba(10, 100, 10, 1);
+}
+
+tr:hover td{
+  color: #fff;
+}
+
+tr:hover .enlaceBoton{
+  color: #fff;
+}
+
+
+.Cabecera {
+  background-color: rgba(5, 5, 100, 0.99);
+  border-radius: 4px;
+  height: 30px;
+  padding: 2em;
+  margin: 0 25%;
+  text-align: center;
+  color: white;
+}
+
+
+#button {
+padding: 0;
+}
+
+#button li {
+display: inline-flex;
+}
+
+#button li a {
+font-family: Arial;
+font-size:11px;
+text-decoration: none;
+float:left;
+padding: 10px;
+background-color: #2175bc;
+color: #fff;
+}
+
+#button li a:hover {
+background-color: #2586d7;
+margin-top:-2px;
+padding-bottom:12px;
+}
+
+.containsBoton{
+    text-align: center;
+}
+
+html,body{
+  margin:0px;
+  height:100%;
+}
+
+body{
+  background-color: lightgray;
+  bottom: 0;
+}
+
+.enlaceBtn {
+  /*background-color: #21211d;*/
+  /*background-color: #2175bc;*/
+  color: #fff;
+  /*padding: 5px;*/
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+
+  background: rgba(10,50,100, 0.8);
+  padding: 0.5em;
+  border: 0;
+}
+
+.enlaceBtn:hover {
+  background: gold;
+  color: #000;
+}
