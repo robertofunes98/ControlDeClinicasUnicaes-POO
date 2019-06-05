@@ -224,3 +224,10 @@ body{
   background: gold;
   color: #000;
 }
+
+
+/*bulma*/
+.is-danger{background-color:#ff3860;border-color:transparent;color:#fff}
+
+.help{display:block;font-size:.75rem;margin-top:.25rem;border-radius: 100px;}
+

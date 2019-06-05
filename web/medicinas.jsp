@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html>
+    
+    <%
+    HttpSession sesion = request.getSession();
+    if(sesion.getAttribute("jvpm") == null)
+    {
+        response.sendRedirect("login.jsp");
+    }
+    %>
+    
 	<head>
 		<title>Medicinas</title>
 		<meta charset='utf-8'>
@@ -13,6 +22,16 @@
 		}
 		</style>
 	</head>
+        
+        <%
+        
+        if(request.getParameter("registrar") != null)
+        {
+            out.print("se presiono boton");
+        }
+
+        %>
+        
 	<body>
 		
 		<h1>Clinica $$$$$$$$$</h1>

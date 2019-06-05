@@ -45,8 +45,8 @@
                   </div>
                   <a href="pacientes.html" class="navbar-item">Pacientes</a>
                   <a href="medicos.html" class="navbar-item">Medicos</a>
-                  <a href="medicinas.html" class="navbar-item">Medicinas</a>
-                  <a href="login.html" class="navbar-item">Login</a>
+                  <a href="medicinas.jsp" class="navbar-item">Medicinas</a>
+                  <a href="logout.jsp" class="navbar-item">Logout</a>
                 </div>
               </div>
             </div>

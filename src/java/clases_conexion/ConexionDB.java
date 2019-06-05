@@ -14,27 +14,16 @@ public class ConexionDB{
     
     String db, usuario, clave;
     
-    public ConexionDB (String dbR, String usuarioR, String claveR) {
+    public ConexionDB (String dbR, String usuarioR, String claveR) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         db=dbR;
         usuario=usuarioR;
         clave=claveR;
+        
+        //instanciando la conexion.
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        conexion=DriverManager.getConnection(db,usuario,clave);
     }
-    
-    
-    public String conectar() throws ClassNotFoundException,InstantiationException, IllegalAccessException
-    {
-        try {
-            //instanciando la conexion.
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conexion=DriverManager.getConnection(db,usuario,clave);
-            //Solo para efectos de prueba...
-            return "¡¡¡Conectado!!!";
-        }
-        catch(SQLException e)
-        {
-            return e.toString();
-        }
-    }
+
     
     public DatabaseMetaData getMetaData() throws SQLException
     {
@@ -66,5 +55,13 @@ public class ConexionDB{
         this.conexion.close();
     }
     
-    
+    public int contarFilas(ResultSet rsContar) throws SQLException
+    {
+        int contador=0;
+        while(rsContar.next())
+            contador++;
+        
+        return contador;
+            
+    }
 }
