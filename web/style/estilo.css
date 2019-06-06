@@ -88,7 +88,7 @@ select{
 
   button {
     float: right;
-    width: calc(100% - 200px);
+    width: calc(100%);
   }
   h1{
   	text-align: center;
@@ -222,6 +222,44 @@ body{
 
 .enlaceBtn:hover {
   background: gold;
+  color: #000;
+}
+
+.primaryButton {
+  /*background-color: #21211d;*/
+  /*background-color: #2175bc;*/
+  color: #fff;
+  /*padding: 5px;*/
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+
+  background: rgba(10,50,100, 0.8);
+  padding: 0.5em;
+  border: 0;
+}
+
+.primaryButton:hover {
+  background: gold;
+  color: #000;
+}
+
+
+.cancelButton {
+  background-color: #E82216;
+  color: #fff;
+  /*padding: 5px;*/
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+
+  background: rgba(232, 34, 22);
+  padding: 0.5em;
+  border: 0;
+}
+
+.cancelButton:hover {
+  background: #EF6D0D;
   color: #000;
 }
 

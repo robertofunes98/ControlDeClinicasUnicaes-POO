@@ -40,8 +40,8 @@ CONSTRAINT fkConsultaXPaciente Foreign key(idPaciente) references Paciente(idPac
 create table Medicina(
 idMedicamento int auto_increment not null,
 nombre varchar(50) not null,
-activo varchar(25) not null,
-cantidad varchar(10) not null,	
+activo varchar(100) not null,
+cantidad varchar(100) not null,	
 jvpm varchar(6) not null,
 Primary Key(idMedicamento),
 CONSTRAINT fkMedicinaXMedico Foreign key(jvpm) references Medico(jvpm)

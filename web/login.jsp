@@ -43,9 +43,7 @@
 
                     ResultSet rsResultado=conexion.ejecutar("SELECT * FROM Medico WHERE jvpm='"+jvpm+"' and clave='"+clave+"'");
 
-                    int cantidadFilas=conexion.contarFilas(rsResultado);
-
-                    if(cantidadFilas==1)
+                    if(rsResultado.next())
                     {
                         sesion.setAttribute("jvpm", jvpm);
                         response.sendRedirect("index.jsp");

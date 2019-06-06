@@ -1,6 +1,8 @@
 package clases_conexion;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 
 
@@ -38,30 +40,38 @@ public class ConexionDB{
         return cons.executeQuery(consulta);
     }
     
-    public void ejecutarComando(String comando) throws SQLException {
+    public int ejecutarComando(String comando) throws SQLException {
         //Objeto tipo Statement que maneja el comando.
         Statement com = this.conexion.createStatement();
         //Ejecuta el comando.
-        try {
-            com.executeUpdate(comando);
-            System.out.println("Comando ejecutado.");
-        }
-        catch(SQLException e) {
-            System.out.println(e);
-        }
+        int cantidadFilas=com.executeUpdate(comando);
+        return cantidadFilas;
     }
     
     public void cerrarConexion() throws SQLException {
         this.conexion.close();
     }
     
-    public int contarFilas(ResultSet rsContar) throws SQLException
+    public LinkedList convertirRsToArrayList(ResultSet rsResultado) throws SQLException
     {
-        int contador=0;
-        while(rsContar.next())
-            contador++;
+        LinkedList<LinkedList> arrayListResultado=new LinkedList<>();
         
-        return contador;
+        ResultSetMetaData rsmd = rsResultado.getMetaData(); 
+
+        int numeroColumnas = rsmd.getColumnCount(); 
+        
+        while(rsResultado.next())
+        {
+            LinkedList<String> datos=new LinkedList<>();
+            
+            for(int i=0; i<numeroColumnas-1; i++)
+            {
+                datos.add(rsResultado.getString(i+1));
+            }
+            
+            arrayListResultado.add(datos);
+        }
+        return arrayListResultado;
             
     }
 }
