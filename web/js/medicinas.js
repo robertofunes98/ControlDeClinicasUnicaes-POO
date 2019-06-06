@@ -1,3 +1,4 @@
+//Funciones para medicinas.jsp
 function modificar(posicion)
 {
 	var datos=document.getElementById('posicion'+posicion).value;
@@ -37,3 +38,4 @@ function registrar(posicion)
 	var inCantidad=document.getElementById('cantidad').value="";
 	btnModificar.setAttribute("onclick","modificar("+posicion+")");
 }
+

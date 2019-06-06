@@ -11,6 +11,7 @@ apellidos varchar(50) not null,
 telefono varchar(8) not null,
 especialidad varchar(30) not null,
 clave varchar(15) not null,
+tipoUsuario varchar(20) not null comment "usuario, admin",
 Primary Key(jvpm)
 );
 

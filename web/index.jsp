@@ -2,7 +2,7 @@
     <html>
     <head>
         <title>Index</title>
-        <meta charset='utf-8'>
+        <meta charset='UTF-8'>
         <link rel='stylesheet' type='text/css' href='style/estilo.css'>
         <link rel='stylesheet' type='text/css' href='style/bulma.min.css'>
         <style type="text/css">
@@ -44,7 +44,7 @@
                     </div>
                   </div>
                   <a href="pacientes.html" class="navbar-item">Pacientes</a>
-                  <a href="medicos.html" class="navbar-item">Medicos</a>
+                  <a href="medicos.jsp" class="navbar-item">Medicos</a>
                   <a href="medicinas.jsp" class="navbar-item">Medicinas</a>
                   <a href="logout.jsp" class="navbar-item">Logout</a>
                 </div>

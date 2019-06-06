@@ -60,13 +60,15 @@ public class ConexionDB{
 
         int numeroColumnas = rsmd.getColumnCount(); 
         
+        System.out.println("numero de columnas: "+numeroColumnas);
+        
         while(rsResultado.next())
         {
             LinkedList<String> datos=new LinkedList<>();
             
-            for(int i=0; i<numeroColumnas-1; i++)
+            for(int i=1; i<=numeroColumnas; i++)
             {
-                datos.add(rsResultado.getString(i+1));
+                datos.add(rsResultado.getString(i));
             }
             
             arrayListResultado.add(datos);
