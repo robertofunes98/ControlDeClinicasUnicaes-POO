@@ -46,6 +46,7 @@
                     if(rsResultado.next())
                     {
                         sesion.setAttribute("jvpm", jvpm);
+                        sesion.setAttribute("tipoUsuario", rsResultado.getString("tipoUsuario"));
                         response.sendRedirect("index.jsp");
                     }
                     else

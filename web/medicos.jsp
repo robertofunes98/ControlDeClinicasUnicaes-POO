@@ -9,6 +9,9 @@
     HttpSession sesion = request.getSession();
     if(sesion.getAttribute("jvpm") == null)
         response.sendRedirect("login.jsp");
+    else if(sesion.getAttribute("tipoUsuario") != "admin")
+        response.sendRedirect("index.jsp");
+        
     %>
     <head>
         <title>Medicos</title>
