@@ -35,15 +35,15 @@
                       Consultas
                     </a>
                     <div class="navbar-dropdown">
-                      <a href="consultas.html" class="navbar-item">
+                      <a href="consultas.jsp" class="navbar-item">
                         Registrar consultas
                       </a>
-                      <a href="revisar_consultas.html" class="navbar-item">
+                      <a href="revisar_consultas.jsp" class="navbar-item">
                         Revisar consultas
                       </a>
                     </div>
                   </div>
-                  <a href="pacientes.html" class="navbar-item">Pacientes</a>
+                  <a href="pacientes.jsp" class="navbar-item">Pacientes</a>
                   <a href="medicos.jsp" class="navbar-item">Medicos</a>
                   <a href="medicinas.jsp" class="navbar-item">Medicinas</a>
                   <a href="logout.jsp" class="navbar-item">Logout</a>
