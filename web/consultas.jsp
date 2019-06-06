@@ -30,7 +30,7 @@
         <h1>Clinica <%out.print(Variables.nombreClinica);%></h1>
         <h1>Registrar Consultas</h1>
 
-        <form method='post'>
+        <form method='post' class='form-personalizable'>
             <%
             if(request.getParameter("registrar") != null)
             {
@@ -46,15 +46,41 @@
                
                 ConexionDB conexion=new ConexionDB(Variables.rutaDB,Variables.userDB,Variables.claveDB);
                 
-                System.out.println("INSERT into Consulta values(null, '"+fecha+"', '"+diagnostico+"', '"+altura+"', '"
-                +peso+"', '"+observaciones+"', '"+idPaciente+"')");
-                
+    
                 int cantidadFilas=conexion.ejecutarComando("INSERT into Consulta values(null, '"+fecha+"', '"+diagnostico+"', '"+altura+"', '"
                 +peso+"', '"+observaciones+"', '"+idPaciente+"')");
                 
                 
                 if(cantidadFilas>0)
-                    out.print("<p class='help is-success'>Se registro la consulta</p><br>");
+                {
+                    String[] idMedicamentos=request.getParameterValues("idMedicamento[]");
+                    String[] dosis=request.getParameterValues("dosis[]");
+                    
+                    ResultSet rsIdConsulta=conexion.ejecutar("SELECT idConsulta from Consulta where fecha='"+fecha
+                            +"' and idPaciente="+idPaciente);
+                    
+                    LinkedList<LinkedList> arrayListIdConsulta=new LinkedList<LinkedList>();
+
+                    arrayListIdConsulta=conexion.convertirRsToArrayList(rsIdConsulta);
+                    
+                    boolean todoCorrecto=true;
+                    
+                    for(int i=0; i<idMedicamentos.length; i++)
+                    {
+                        int cantidadFilasMedicinas=conexion.ejecutarComando("INSERT into MedicinaXConsulta values(null, '"
+                            +arrayListIdConsulta.get(0).get(0)+"', '"+idMedicamentos[i]+"', '"+dosis[i]+"')");
+                        
+                        if(cantidadFilasMedicinas==0)
+                            todoCorrecto=false;
+                    }
+                    
+                    
+                    
+                    if(todoCorrecto)
+                        out.print("<p class='help is-success'>Se registro la consulta</p><br>");
+                    else
+                        out.print("<p class='help is-danger'>La consulta fue registrada pero fallo el registro de medicinas</p><br>");
+                }
                 else
                     out.print("<p class='help is-danger'>La consulta no pudo ser registrada</p><br>");
             }
@@ -103,16 +129,7 @@
             </select>
             
             
-            <table id='tblMedicina'>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Activo</th>
-                    <th>Cantidad de activo</th>
-                    <th>Dosis</th>
-                    <th></th>
-                </tr>
-            </table>
+            
             
 
             <label>Paciente: </label>
@@ -128,7 +145,6 @@
 
             for(int i=0; i<arrayListResultado.size();i++)
             {
-                JSONArray jsArray = new JSONArray(arrayListResultado.get(i));
                 out.print("<option value='"+arrayListResultado.get(i).get(0)+"'>"+arrayListResultado.get(i).get(2)+", "+arrayListResultado.get(i).get(1)+"</option>");
             }
 
@@ -137,8 +153,23 @@
 
             </select>
 
+            
+        
+            
+            <h3>Medicnas recetadas</h3>
+            <table id='tblMedicina' class='table-personalizable'>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Activo</th>
+                    <th>Cantidad de activo</th>
+                    <th>Dosis</th>
+                    <th></th>
+                </tr>
+            </table>
+            <br><br><br>
             <button type='submit' name='registrar'>Registrar</button>
         </form>
-
+        <br><br><br>
     </body>
 </html>

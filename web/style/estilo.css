@@ -263,9 +263,30 @@ body{
   color: #000;
 }
 
+.form-personalizable {
+  padding: 1em;
+  background: #f9f9f9;
+  border: 1px solid #c1c1c1;
+  margin-top: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+
+
+.table-personalizable {
+  background: white;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 2%;
+  border-collapse: collapse;
+  text-align: center;
+}
 
 /*bulma*/
 .is-danger{background-color:#ff3860;border-color:transparent;color:#fff}
 
 .help{display:block;font-size:.75rem;margin-top:.25rem;border-radius: 100px;}
+
 
