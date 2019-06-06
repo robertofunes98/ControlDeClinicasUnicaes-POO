@@ -62,6 +62,20 @@
                     out.print("<p class='help is-danger'>La medicina no pudo ser actualizada</p><br>");
 
             }
+            else if(request.getParameter("eliminar") != null)
+            {
+                String idMedicamento=request.getParameter("idMedicamento");
+                ConexionDB conexion=new ConexionDB(Variables.rutaDB,Variables.userDB,Variables.claveDB);
+              
+     
+                int cantidadFilas=conexion.ejecutarComando("DELETE from Medicina WHERE idMedicamento='"+idMedicamento+"'");
+                
+                
+                if(cantidadFilas>0)
+                    out.print("<p class='help is-success'>Se elimino la medicina</p><br>");
+                else
+                    out.print("<p class='help is-danger'>La medicina no pudo ser eliminada</p><br>");
+            }
             %>
 
             <label>Nombre: </label>
@@ -83,6 +97,7 @@
                 <th>Nombre</th>
                 <th>Activo/s</th>
                 <th>Cantidad de activo/s</th>
+                <th></th>
                 <th></th>
             </tr>
 
@@ -106,6 +121,8 @@
                 out.print("<td>"+arrayListResultado.get(i).get(3)+"</td>");
                 out.print("<td><input type='hidden' id='posicion"+i+"' value='"
                         +jsArray+"'><button id='btnModificar"+i+"' class='primaryButton' onclick='modificar("+i+")' type='button'>Modificar</button></td>");
+                out.print("<td><input type='hidden' id='posicionEliminar"+i+"' value='"+jsArray+"'><button id='btnEliminar"+i
+                        +"' class='cancelButton' onclick='eliminar("+i+")' type='button'>Borrar</button></td>");
                 out.print("</tr>");
             }
 

@@ -39,3 +39,29 @@ function registrar(posicion)
 	btnModificar.setAttribute("onclick","modificar("+posicion+")");
 }
 
+
+function eliminar(posicion)
+{
+	confirm("¿Esta seguro que desea borrar este registro?");
+
+	var datos=document.getElementById('posicion'+posicion).value;
+	datos = JSON.parse(datos);
+
+	form = document.createElement("form");// creamos el formulario
+	form.setAttribute("method", "post");
+	
+	control = document.createElement("input");// creamos un control
+	control.setAttribute("type", "text");
+	control.setAttribute("name", "idMedicamento");
+	control.setAttribute("value", datos[0]);
+	form.appendChild(control); // lo añadimos al form
+
+	control2 = document.createElement("input");// creamos un control
+	control2.setAttribute("type", "text");
+	control2.setAttribute("name", "eliminar");
+	form.appendChild(control2); // lo añadimos al form
+	
+	document.body.appendChild(form);
+
+	form.submit();
+}

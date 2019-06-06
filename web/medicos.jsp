@@ -91,7 +91,6 @@
                 String jvpm=request.getParameter("jvpm");
                 ConexionDB conexion=new ConexionDB(Variables.rutaDB,Variables.userDB,Variables.claveDB);
               
-                System.out.println("loool"+jvpm);
                 
                 int cantidadFilas=conexion.ejecutarComando("DELETE from Medico WHERE jvpm='"+jvpm+"'");
                 
