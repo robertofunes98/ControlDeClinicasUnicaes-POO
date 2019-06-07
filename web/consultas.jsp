@@ -30,7 +30,8 @@
         <h1>Clinica <%out.print(Variables.nombreClinica);%></h1>
         <h1>Registrar Consultas</h1>
 
-        <form method='post' class='form-personalizable'>
+        <form method='post' class='form-personalizable' onsubmit='return validar()'>
+            <p id='errorAlert' class='invisible'></p><br>
             <%
             if(request.getParameter("registrar") != null)
             {
@@ -65,42 +66,44 @@
                     
                     boolean todoCorrecto=true;
                     
-                    for(int i=0; i<idMedicamentos.length; i++)
-                    {
-                        int cantidadFilasMedicinas=conexion.ejecutarComando("INSERT into MedicinaXConsulta values(null, '"
-                            +arrayListIdConsulta.get(0).get(0)+"', '"+idMedicamentos[i]+"', '"+dosis[i]+"')");
-                        
-                        if(cantidadFilasMedicinas==0)
-                            todoCorrecto=false;
-                    }
-                    
-                    
-                    
-                    if(todoCorrecto)
+                    if(dosis==null)
                         out.print("<p class='help is-success'>Se registro la consulta</p><br>");
                     else
-                        out.print("<p class='help is-danger'>La consulta fue registrada pero fallo el registro de medicinas</p><br>");
+                    {
+                        for(int i=0; i<idMedicamentos.length; i++)
+                        {
+                            int cantidadFilasMedicinas=conexion.ejecutarComando("INSERT into MedicinaXConsulta values(null, '"
+                                +arrayListIdConsulta.get(0).get(0)+"', '"+idMedicamentos[i]+"', '"+dosis[i]+"')");
+
+                            if(cantidadFilasMedicinas==0)
+                                todoCorrecto=false;
+                        }
+                        if(todoCorrecto)
+                        out.print("<p class='help is-success'>Se registro la consulta</p><br>");
+                        else
+                            out.print("<p class='help is-danger'>La consulta fue registrada pero fallo el registro de medicinas</p><br>");
+                    }
                 }
                 else
                     out.print("<p class='help is-danger'>La consulta no pudo ser registrada</p><br>");
             }
             %>
             <label>Fecha: </label>
-            <input type='date' name='fecha'>
+            <input type='date' name='fecha' required>
 		
             <label>Diagnostico: </label>
 
-            <textarea name="diagnostico" cols="50" rows="5" maxlength="500"></textarea>
+            <textarea name="diagnostico" cols="50" rows="5" maxlength="500" required></textarea>
 
             <label>Altura: (M)</label>
-            <input type='number' name='altura' min="0" step="0.01">
+            <input type='number' name='altura' min="0" step="0.01" required>
 
             <label>Peso: (KG)</label>
-            <input type='number' name='peso' min="0" step="0.01">
+            <input type='number' name='peso' min="0" step="0.01" required>
 
             <label>Observaciones: </label>
 
-            <textarea name="observaciones" cols="50" rows="5" maxlength="500"></textarea>
+            <textarea name="observaciones" cols="50" rows="5" maxlength="500" required></textarea>
             
             
             <label>Seleccionar medicina: </label>
@@ -133,7 +136,8 @@
             
 
             <label>Paciente: </label>
-            <select name='idPaciente'>
+            <select id='idPaciente' name='idPaciente'>
+                <option>--Seleccione una--</option>
             <%
            
             ResultSet rsResultado=conexion.ejecutar("SELECT * FROM Paciente WHERE jvpm='"+sesion.getAttribute("jvpm")+"'");

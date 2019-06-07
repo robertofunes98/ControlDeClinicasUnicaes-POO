@@ -79,11 +79,11 @@
             %>
 
             <label>Nombre: </label>
-            <input type='text' name='nombre' id='nombre' maxlength="50">
+            <input type='text' name='nombre' id='nombre' maxlength="50" required>
             <label>Activo/s: </label>
-            <input type='text' name='activo' id='activo' maxlength="100">
+            <input type='text' name='activo' id='activo' maxlength="100" required>
             <label>Cantidad del/los activo: </label>
-            <input type='text' name='cantidad' id='cantidad' maxlength="100">
+            <input type='text' name='cantidad' id='cantidad' maxlength="100" required>
             <input type='hidden' name='idMedicamento' id='idMedicamento' maxlength="100">
             <button type='submit' name='registrar' id='btnAceptar'>Registrar</button>
         </form>

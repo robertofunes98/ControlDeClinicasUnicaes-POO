@@ -9,7 +9,7 @@
     HttpSession sesion = request.getSession();
     if(sesion.getAttribute("jvpm") == null)
         response.sendRedirect("login.jsp");
-    else if(sesion.getAttribute("tipoUsuario") != "admin")
+    else if(!sesion.getAttribute("tipoUsuario").equals("admin"))
         response.sendRedirect("index.jsp");
         
     %>
@@ -36,8 +36,8 @@
         <!--Formulario para registrar medico-->
 
         <h3 id='accion'>Registrar medicos</h3>
-        <form method='post'>
-            
+        <form method='post' onsubmit='return validar()'>
+            <p id='errorAlert' class='invisible'></p><br>
             <%
 
             if(request.getParameter("registrar") != null)
@@ -55,9 +55,16 @@
                
                 ConexionDB conexion=new ConexionDB(Variables.rutaDB,Variables.userDB,Variables.claveDB);
                 
+                int cantidadFilas=0;
                 
-                int cantidadFilas=conexion.ejecutarComando("INSERT into Medico values('"+jvpm+"', '"+nombres+"', '"+apellidos+"', '"
-                +telefono+"', '"+especialidad+"', '"+clave+"', '"+tipoUsuario+"')");
+                try{
+                    cantidadFilas=conexion.ejecutarComando("INSERT into Medico values('"+jvpm+"', '"+nombres+"', '"+apellidos+"', '"
+                    +telefono+"', '"+especialidad+"', '"+clave+"', '"+tipoUsuario+"')");
+                }
+                catch(Exception e)
+                {
+                    out.print("<p class='help is-danger'>"+e.getMessage()+"</p><br>");
+                }
                 
                 
                 if(cantidadFilas>0)
@@ -106,22 +113,22 @@
             %>
             
             <label>Nombres: </label>
-            <input type='text' name='nombres' id='nombres' maxlength="50">
+            <input type='text' name='nombres' id='nombres' maxlength="50" required>
 
             <label>Apellidos: </label>
-            <input type='text' name='apellidos' id='apellidos' maxlength="50">
+            <input type='text' name='apellidos' id='apellidos' maxlength="50" required>
 
             <label>JVPM: </label>
             <input type='text' name='jvpm' id='jvpm' maxlength="6" required>
             
             <label>Clave: </label>
-            <input type='password' name='clave' id='clave' maxlength="15">
+            <input type='password' name='clave' id='clave' maxlength="15" required>
 
             <label>Teléfono: </label>
-            <input type='text' name='telefono' id='telefono' maxlength="10">
+            <input type='text' name='telefono' id='telefono' maxlength="10" required>
 
             <label>Especialidad: </label>
-            <input type='text' name='especialidad' id='especialidad' maxlength="50">
+            <input type='text' name='especialidad' id='especialidad' maxlength="50" required>
             
             <label>Tipo usuario: </label>
             <select name='tipoUsuario' id='tipoUsuario' required>

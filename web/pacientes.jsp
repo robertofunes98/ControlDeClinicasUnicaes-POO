@@ -33,8 +33,8 @@
         <!--Formulario para registrar pacientes-->
 
 
-        <form method='post'>
-            
+        <form method='post' onsubmit='return validar()'>
+            <p id='errorAlert' class='invisible'></p><br>
             <%
 
             if(request.getParameter("registrar") != null)
@@ -94,17 +94,18 @@
             %>
             
             <label>Nombre: </label>
-            <input type='text' name='nombres' id='nombres' maxlength="50">
+            <input type='text' name='nombres' id='nombres' maxlength="50" required>
 
             <label>Apellido: </label>
-            <input type='text' name='apellidos' id='apellidos' maxlength="50">
+            <input type='text' name='apellidos' id='apellidos' maxlength="50" required>
 
             <label>Fecha de nacimiento: </label>
-            <input type='date' name='fecha' id='fecha'>
+            <input type='date' name='fecha' id='fecha' required>
 
             <label>Sexo: </label>
 
             <select name='sexo' id='sexo'>
+                <option>--Seleccione uno--</option>
                 <option value='M'>Masculino</option>
                 <option value='F'>Femenino</option>
             </select>

@@ -14,7 +14,7 @@
         <title>Revisar consultas</title>
         <meta charset='utf-8'>
         <link rel='stylesheet' type='text/css' href='style/estilo.css'>
-        <script src="js/medicos.js"></script>
+        <script src="js/revisar_consultas.js"></script>
         <style type="text/css">
             form button{
                 margin-bottom: 10px;
@@ -31,10 +31,11 @@
         <h3>Buscar Consultas por Paciente</h3>
 
 
-        <form method='post'>
+        <form method='post' onsubmit='return validar()'>
+            <p id='errorAlert' class='invisible'></p><br>
             <label>Seleccionar Paciente: </label>
 
-            <select name='datosPaciente'>
+            <select name='datosPaciente' id='datosPaciente'>
                 <option>--Seleccione uno--</option>
             <%
             ConexionDB conexion=new ConexionDB(Variables.rutaDB,Variables.userDB,Variables.claveDB);

@@ -284,6 +284,10 @@ body{
   text-align: center;
 }
 
+.invisible{
+  display: none;
+}
+
 /*bulma*/
 .is-danger{background-color:#ff3860;border-color:transparent;color:#fff}
 

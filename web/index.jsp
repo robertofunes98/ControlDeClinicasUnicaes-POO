@@ -48,6 +48,7 @@
                     HttpSession sesion = request.getSession();
                     if(sesion.getAttribute("jvpm") == null)
                         response.sendRedirect("login.jsp");
+                    else 
                     if(sesion.getAttribute("tipoUsuario").equals("admin"))
                         out.print("<a href=\"medicos.jsp\" class=\"navbar-item\">Medicos</a>");
                     %>
