@@ -192,6 +192,12 @@ margin-top:-2px;
 padding-bottom:12px;
 }
 
+
+.containsBoton-left{
+    margin-left: 28%;
+    margin-top: 30px;
+}
+
 .containsBoton{
     text-align: center;
 }
@@ -293,4 +299,8 @@ body{
 
 .help{display:block;font-size:.75rem;margin-top:.25rem;border-radius: 100px;}
 
+.is-success{background-color:lime;border-color:transparent;color:#fff}
 
+.is-primary{background-color:gray; border-color:transparent;color:white,width: 40px; border-radius: 100px; padding: 5px 0;}
+
+.container{width: 20%; margin-left: 25%;}

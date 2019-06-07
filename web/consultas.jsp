@@ -14,6 +14,7 @@
         <title>Consultas</title>
         <meta charset='utf-8'>
         <link rel='stylesheet' type='text/css' href='style/estilo.css'>
+        
         <script src="js/consultas.js"></script>
         <style type="text/css">
             form button{
@@ -27,6 +28,9 @@
         </style>
     </head>
     <body>
+        <div class='containsBoton-left'>
+            <a class='enlaceBtn' href='index.jsp'>Regresar</a>
+        </div><br>
         <h1>Clinica <%out.print(Variables.nombreClinica);%></h1>
         <h1>Registrar Consultas</h1>
 

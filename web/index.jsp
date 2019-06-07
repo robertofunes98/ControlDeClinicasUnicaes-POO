@@ -20,7 +20,7 @@
         <nav class="navbar is-dark is-fixed">
             <div class="container">
               <div class="navbar-brand">
-                <img class="navbar-brand-logo" src="images/logo.jpg" alt="ITCA-FEPADE">
+                <img class="navbar-brand-logo" src="img/logo.png" alt="ITCA-FEPADE">
                 <span class="navbar-burger burger" data-target="navMenu">
                   <span></span>
                   <span></span>

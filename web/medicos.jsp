@@ -30,6 +30,9 @@
         </style>
     </head>
     <body>
+        <div class='containsBoton-left'>
+            <a class='enlaceBtn' href='index.jsp'>Regresar</a>
+        </div>
         
         <h1>Clinica <%out.print(Variables.nombreClinica);%></h1>
 

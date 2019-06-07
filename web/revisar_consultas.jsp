@@ -27,6 +27,10 @@
         </style>
     </head>
     <body>
+        
+        <div class='containsBoton-left'>
+            <a class='enlaceBtn' href='index.jsp'>Regresar</a>
+        </div><br>
         <h1>Clinica <%out.print(Variables.nombreClinica);%></h1>
         <h3>Buscar Consultas por Paciente</h3>
 

@@ -27,6 +27,10 @@
         </style>
     </head>
     <body>
+        
+        <div class='containsBoton-left'>
+            <a class='enlaceBtn' href='index.jsp'>Regresar</a>
+        </div><br>
         <h1>Clinica <%out.print(Variables.nombreClinica);%></h1>
         <h3 id='accion'>Registrar Pacientes</h3>
 
@@ -66,7 +70,7 @@
                 
                 ConexionDB conexion=new ConexionDB(Variables.rutaDB,Variables.userDB,Variables.claveDB);
               
-                int cantidadFilas=conexion.ejecutarComando("UPDATE Medico set nombres='"+nombres+"', apellidos='"+apellidos+"'"
+                int cantidadFilas=conexion.ejecutarComando("UPDATE Paciente set nombres='"+nombres+"', apellidos='"+apellidos+"'"
                         + ", fecha='"+fecha+"', sexo='"+sexo+"' WHERE idPaciente='"+idPaciente+"'");
                 
                 
@@ -128,7 +132,7 @@
             <%
             ConexionDB conexion=new ConexionDB(Variables.rutaDB,Variables.userDB,Variables.claveDB);
 
-            ResultSet rsResultado=conexion.ejecutar("SELECT * FROM Paciente");
+            ResultSet rsResultado=conexion.ejecutar("SELECT * FROM Paciente where jvpm='"+sesion.getAttribute("jvpm")+"'");
 
             LinkedList<LinkedList> arrayListResultado=new LinkedList<LinkedList>();
 
